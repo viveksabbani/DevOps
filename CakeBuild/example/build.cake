@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////////////////////////
 
 var target = Argument("target", "Default");
-Argument("clean","Clean");
+
 var configuration = Argument("configuration", "Release");
 
 //////////////////////////////////////////////////////////////////////
@@ -17,8 +17,13 @@ var buildDir = Directory("./src/Example/bin") + Directory(configuration);
 //////////////////////////////////////////////////////////////////////
 // TASKS
 //////////////////////////////////////////////////////////////////////
-
+Task("MyTask")
+    .Does(()=>
+{
+    Console.WriteLine("My task");
+});
 Task("Clean")
+    .IsDependentOn("MyTask")
     .Does(() =>
 {
     CleanDirectory(buildDir);
