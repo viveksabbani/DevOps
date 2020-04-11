@@ -111,7 +111,7 @@ while(1){
             break
         }
         0{  
-            "You are exiting from the script..."
+            Write-Output "You are exiting from the script..."
             exit
         }
         default{
